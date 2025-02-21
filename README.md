@@ -14,7 +14,6 @@ This project is designed to detect anomalies in parliamentary expenses using an 
 - [Usage](#usage)
 - [Evaluation & Results Explanation](#evaluation--results-explanation)
 - [Running Tests](#running-tests)
-- [License](#license)
 
 ---
 
