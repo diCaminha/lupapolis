@@ -27,13 +27,6 @@ def load_data(file_paths, columns_to_use):
 
 
 def build_pipeline(categorical_features, numeric_features, contamination=0.02):
-    """
-    Build a scikit-learn Pipeline that:
-      1. Applies one-hot encoding to categorical features.
-      2. Scales numeric features.
-      3. Combines the features.
-      4. Fits an IsolationForest for anomaly detection.
-    """
     # Transformer for categorical features
     cat_transformer = OneHotEncoder(handle_unknown="ignore")
 
