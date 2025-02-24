@@ -38,8 +38,22 @@ class Deputado:
         return f"Deputado {self.id}: {self.name} ({self.urlPhoto})"
 
 
+def build_data_to_alert(deputado, result):
+    return {
+        "resultado": {
+            **result},
+        "deputado": {
+            "id": deputado.id,
+            "nome": deputado.name,
+            "email": deputado.email,
+            "foto": deputado.urlPhoto
+        }
+    }
+
+
 def get_deputados_data_from_file():
     deputados = []
+    alertas = []
     filename = 'files/deputados.csv'  # Replace with your CSV file name or path
     with open(filename, mode='r', encoding='utf-8') as csvfile:
         csv_reader = csv.DictReader(csvfile)
@@ -63,11 +77,16 @@ def get_deputados_data_from_file():
             despesas = content["dados"]
 
             for despesa in despesas:
-                run_model(despesa)
-                return
+                result = run_model(despesa)
+                if result["alert"] in ["RED", "YELLOW"]:
+                    dados_alerta = build_data_to_alert(deputado, result)
+                    alertas.append(dados_alerta)
+                    print(dados_alerta)
 
         except requests.RequestException as error:
             print("An error occurred while fetching data:", error)
+
+    print(len(alertas))
 
 if __name__ == '__main__':
     get_deputados_data_from_file()

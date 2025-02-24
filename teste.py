@@ -65,11 +65,11 @@ def run_model(expense_from_rest):
 
     # Define alert levels based on score
     if prediction == -1:
-        alert = "🔴 RED ALERT (High Anomaly Risk)"
+        alert = "RED"
     elif prediction == 1 and anomaly_score > 0.1:
-        alert = "✅ GREEN (Normal)"
+        alert = "GREEN"
     elif prediction == 1 and anomaly_score <= 0.1:
-        alert = "🟡 YELLOW ALERT (Borderline Anomaly Risk)"
+        alert = "YELLOW"
 
     output = {
         "expense": {
@@ -85,6 +85,6 @@ def run_model(expense_from_rest):
         "alert": alert,
         "influential_features": influential_features
     }
-
+    return output
     # Print JSON result
-    print(json.dumps(output, indent=4))
+    #print(json.dumps(output, indent=4))
