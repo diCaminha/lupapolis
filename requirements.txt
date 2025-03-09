@@ -6,3 +6,8 @@ ace_tools
 matplotlib
 shap
 requests
+pdf2image
+openai
+selenium
+dotenv
+streamlit
