@@ -40,8 +40,6 @@ def process_file(url):
 
 
 def ask_gpt_about_image(img_base64, question):
-    api_key = ""
-    print("INICIANDO PROCESSO COM IMAGEM")
     messages = [
         {"role": "system", "content": "Você é um excelente analisador de imagens de comprovantes de despesas e identificador de anomalia em gastos de verbas de deputados federais do brasil."},
         {"role": "user", "content": f"Pergunta: {question}\nImagem (base64): {img_base64}"}
@@ -56,15 +54,11 @@ def ask_gpt_about_image(img_base64, question):
 
 
 def ask_gpt_about_expense(question):
-    api_key = ""
-
-    # Cria as mensagens para o Chat
     messages = [
         {"role": "system", "content": "Você é um excelente analisador de despesas e identificador de anomalia em gastos com verbas de deputados federais dom brasil."},
         {"role": "user", "content": f"Pergunta: {question}"}
     ]
 
-    # Chama a API do OpenAI utilizando a biblioteca oficial
     response = client.chat.completions.create(
         model=modelo,
         temperature=0.1,
@@ -105,11 +99,6 @@ Por favor, não utilize caracteres de formatação ou delimitação (como ``` ou
 Despesa: {despesa}
 
         """
-    #try:
-        # Processa o arquivo e gera a imagem em Base64
-    #    img_base64 = process_file(despesa["urlDocumento"])
-    #    result = ask_gpt_about_image(img_base64, pergunta)
-    #except Exception as e:
     result = ask_gpt_about_expense(pergunta_sem_image)
 
     return result
