@@ -11,3 +11,4 @@ openai
 selenium
 dotenv
 streamlit
+tqdm_joblib
