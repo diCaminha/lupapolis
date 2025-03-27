@@ -7,9 +7,9 @@ from main import txtFornecedores
 
 
 def load_transformers():
-    with open('saved_models/numeric_transformer_old.pkl', 'rb') as f:
+    with open('saved_models/numeric_transformer.pkl', 'rb') as f:
         numeric_transformer = pickle.load(f)
-    with open('saved_models/categorical_transformer_old.pkl', 'rb') as f:
+    with open('saved_models/categorical_transformer.pkl', 'rb') as f:
         categorical_transformer = pickle.load(f)
     return numeric_transformer, categorical_transformer
 
@@ -36,7 +36,7 @@ def mapper_expense(expense):
     }
 
 def run(deputado, despesa):
-    with open('saved_models/best_model_old.pkl', 'rb') as f:
+    with open('saved_models/best_model.pkl', 'rb') as f:
         best_model = pickle.load(f)
 
     numeric_transformer, categorical_transformer = load_transformers()
