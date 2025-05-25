@@ -21,97 +21,90 @@ CARD_BG      = "#ffffff"   # branco puro para cards
 ACCENT_GREEN = "#2e7d32"   # verde principal
 ACCENT_LIGHT = "#4caf50"   # hover / claro
 
-st.set_page_config(page_title="Monitor de Despesas",
-                   page_icon="💰",
-                   layout="wide")
+st.set_page_config(
+    page_title="Monitor de Despesas",
+    page_icon="💰",
+    layout="wide",
+    initial_sidebar_state="collapsed"   # esconde a barra preta
+)
 
 st.markdown(
-    """
+    f"""
     <style>
-    /* -------- reset do tema Streamlit -------- */
-    @media (prefers-color-scheme: dark) {
-      html, body, [data-testid="stApp"] { color-scheme: light; }
-    }
+    /* remove barra do Streamlit */
+    header, footer {{visibility:hidden;}}
 
-    /* fundo geral */
-    .stApp {
-        background-color: #f7f8f9; /* off-white um tom mais quente */
-        color: #212529;            /* cinza-escuro */
-    }
+    .stApp {{
+        background-color:{PRIMARY_BG};
+        color:#212529;
+        font-family:'IBM Plex Sans',system-ui,sans-serif;
+    }}
 
-    /* cabeçalho principal */
-    h1 {
-        color: #2e7d32;
-        font-size: 2.2rem;
-        margin-bottom: .2rem;
-    }
-    /* subtítulos dentro de cards */
-    h3 {margin: .2rem 0 .4rem 0;}
+    h1 {{color:{ACCENT_GREEN};margin:.3rem 0 1rem 0;font-size:2.4rem}}
 
-    /* container central */
-    .block-container {
-        max-width: 900px;
-        padding: 1rem 2rem;
-        margin: auto;
-    }
+    .block-container {{
+        max-width:1080px;  /* mais largo */
+        margin:auto;
+        padding-top:1.2rem;
+    }}
 
-    /* componente select */
-    label, .stSelectbox, .stMultiSelect {
-        width: 100%;
-    }
-    div[data-baseweb="select"] > div {
-        background-color: #ffffff !important;
-        border: 1px solid #ced4da !important;
-        border-radius: 6px;
-    }
+    /* painel explicativo recolhível */
+    details {{
+        background:{CARD_BG};
+        border:1px solid #dee2e6;
+        border-radius:8px;
+        padding:0.8rem 1rem;
+        margin-bottom:1.2rem;
+    }}
+    summary {{font-weight:600;cursor:pointer}}
 
-    /* botão primário */
-    div.stButton > button {
-        background: #2e7d32;
-        border: none;
-        color: #fff;
-        padding: .5rem 1.2rem;
-        border-radius: 6px;
-    }
-    div.stButton > button:hover {
-        background: #43a047;
-        color: #fff;
-    }
+    /* select */
+    div[data-baseweb="select"]>div {{
+        background:#fff!important;
+        border:1px solid #b5bec6!important;
+        border-radius:6px;
+    }}
+    div[data-baseweb="select"]:focus-within {{
+        box-shadow:0 0 0 3px #c8e6c9;
+    }}
 
-    /* cards das despesas */
-    .card {
-        background: #fff;
-        border-radius: 8px;
-        box-shadow: 0 1px 4px rgba(0,0,0,.05);
-        padding: 1rem 1.4rem;
-        margin-bottom: 1.2rem;
-    }
+    /* botão */
+    div.stButton>button {{
+        background:{ACCENT_GREEN};
+        color:#fff;
+        border:none;
+        padding:.45rem 1.4rem;
+        border-radius:6px;
+        float:right;           /* alinha à direita */
+    }}
+    div.stButton>button:hover {{background:{ACCENT_LIGHT}}}
 
-    /* aviso dentro de card */
-    .alert-label {
-        color: #c62828;
-        font-weight: 600;
-        margin: .5rem 0 0 0;
-    }
-
-    /* imagem deput. alinhada à esquerda do texto */
-    .dep-header {
-        display: flex;
-        gap: 12px;
-        align-items: center;
-    }
-    .dep-header img {border-radius: 50%;}
-    
-    .stAlert > div {
+    /* cards */
+    .card {{
+        background:{CARD_BG};
+        border-radius:8px;
+        box-shadow:0 1px 3px rgba(0,0,0,.04);
+        padding:1rem 1.3rem;
+        margin-bottom:1rem;
+    }}
+    .card-header {{
+        display:flex;justify-content:space-between;align-items:center;
+        margin-bottom:.4rem;
+    }}
+    .card-header img{{border-radius:50%;width:50px;height:50px;object-fit:cover}}
+    .alert-label{{color:#c62828;font-weight:600;margin-top:.4rem}}
+    a{{color:{ACCENT_GREEN};font-weight:600;text-decoration:none}}
+    a:hover{{text-decoration:underline}}
+    .stAlert > div {{
         color: #2e7d32 !important;          /* texto verde-escuro */
         background-color: #e8f5e9 !important;  /* verde bem claro */
         border-left: 6px solid #2e7d32 !important;
-    }
-
+    }}
     </style>
     """,
     unsafe_allow_html=True,
 )
+
 
 # ───────────────────────  dados fixos  ────────────────────── #
 
@@ -315,7 +308,7 @@ def fetch_anomalies(deps):
             for desp in r.json()["dados"]:
                 if desp["tipoDespesa"] not in selected_categories:
                     continue
-                res = run_model(desp, k_threshold=5.0)  # limite mais rígido
+                res = run_model(desp, k_threshold=7.5)  # limite mais rígido
                 if res["alert"] == "RED":
                     bucket = bucket_nome(
                         desp["nomeFornecedor"], desp["tipoDespesa"]
@@ -336,10 +329,24 @@ def fetch_anomalies(deps):
 
 def main():
     st.markdown("<h1>Monitor de Despesas Parlamentares</h1>", unsafe_allow_html=True)
-    st.write(
-        "Selecione os deputados para verificar se existem despesas recentes "
-        "que fogem do padrão histórico."
+
+    # ▼ painel recolhível
+    st.markdown(
+        """
+        <details>
+        <summary>Como identificamos uma despesa fora do padrão?</summary>
+        <ul style="margin-top:.6rem">
+          <li>Analisamos o histórico de cada <b>fornecedor × tipo de despesa</b>.</li>
+          <li>Calculamos a <b>mediana</b> (valor típico) e o <b>MAD</b> (dispersão robusta).</li>
+          <li>Uma nova nota que fique <b>7,5 × MAD</b> acima da mediana é sinalizada aqui.</li>
+          <li>Isso filtra apenas casos com grande chance de anomalia.</li>
+        </ul>
+        </details>
+        """,
+        unsafe_allow_html=True,
     )
+
+    st.write("Selecione os deputados que deseja checar." )
 
     deputados = load_deputados()
     nomes = [d.nome for d in deputados]
