@@ -264,7 +264,7 @@ txtFornecedores = ['SERVIÇO NACIONAL DE APRENDIZAGEM COMERCIAL - SENAC',
  'CORREIOS - SEDEX 10',
  'TELEFÔNICA BRASIL S.A']
 
-STATS = json.loads(Path("saved_models/robust_stats_by_supplier.json").read_text())
+STATS = json.loads(Path("robust_stats_by_supplier.json").read_text())
 
 
 # ─────────────────────  helpers  ───────────────────── #
