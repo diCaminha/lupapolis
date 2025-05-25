@@ -23,7 +23,7 @@ logger = logging.getLogger(__name__)
 DATA_FILES = [f"files/despesas{yr}.csv" for yr in range(2015, 2025)]
 COLUMNS    = ["txtDescricao", "numMes", "numAno", "vlrLiquido", "txtFornecedor"]
 MIN_ROWS   = 10
-STATS_OUT  = Path("saved_models/robust_stats_by_supplier.json")
+STATS_OUT  = Path("robust_stats_by_supplier.json")
 
 selected_categories = [
     "COMBUSTÍVEIS E LUBRIFICANTES.",
