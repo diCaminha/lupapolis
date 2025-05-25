@@ -12,7 +12,7 @@ import numpy as np
 import pandas as pd
 
 K_THRESHOLD = 7.5
-STATS_FILE  = Path("saved_models/robust_stats_by_supplier.json")
+STATS_FILE  = Path("robust_stats_by_supplier.json")
 
 # set para lookup rápido
 txtFornecedores = ['SERVIÇO NACIONAL DE APRENDIZAGEM COMERCIAL - SENAC',
