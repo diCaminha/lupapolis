@@ -1,10 +1,20 @@
-import pandas as pd
-import joblib
-import numpy as np
-import shap
+#!/usr/bin/env python
+# coding: utf-8
+"""
+Carrega os stats e, dado um gasto, decide se é anômalo via
+|valor - median| / MAD  >  K   (K ≈ 3.5)
+"""
+
 import json
+from pathlib import Path
 
+import numpy as np
+import pandas as pd
 
+K_THRESHOLD = 3.5   # ajuste conforme desejado
+STATS_FILE  = Path("saved_models/robust_stats_by_supplier.json")
+
+# set para lookup rápido
 txtFornecedores = ['SERVIÇO NACIONAL DE APRENDIZAGEM COMERCIAL - SENAC',
  'CLARO S.A',
  'UBER DO BRASIL TECNOLOGIA LTDA',
@@ -149,73 +159,26 @@ txtFornecedores = ['SERVIÇO NACIONAL DE APRENDIZAGEM COMERCIAL - SENAC',
  'CORREIOS - SEDEX 10',
  'TELEFÔNICA BRASIL S.A']
 
-
-def mapper_expense(expense):
-    return {
-             "numMes": [expense["mes"]],
-             "numAno": [expense["ano"]],
-             "numParcela": [expense["parcela"]],
-             "txtDescricao": [expense["tipoDespesa"]],
-             "vlrLiquido": [expense["valorLiquido"]],
-            "txtFornecedor": [expense["nomeFornecedor"]]
-    }
+with STATS_FILE.open(encoding="utf-8") as f:
+    STATS = json.load(f)
 
 
-# Create JSON output
-def __check_if_anomaly(prediction):
-    if prediction == 1:
-        return False
-    elif prediction == -1:
-        return True
-    else:
-        raise Exception("strange prediction value!")
+def _bucket_name(fornecedor: str, tipo: str) -> str:
+    return fornecedor if fornecedor in txtFornecedores else f"OUTROS_{tipo}"
 
 
-def run_model(expense_from_rest):
+def _robust_z(valor: float, bucket: str) -> float:
+    stats = STATS.get(bucket) or STATS.get("GLOBAL")
+    return abs(valor - stats["median"]) / stats["mad"]
 
-    # Determina o fornecedor para definir o grupo
-    supplier = expense_from_rest["nomeFornecedor"] if expense_from_rest[
-                                                          "nomeFornecedor"] in txtFornecedores else f"OUTROS_{expense_from_rest["tipoDespesa"]}"
 
-    # Cria um DataFrame de uma linha com apenas a coluna 'vlrLiquido'
-    df_single = pd.DataFrame({"vlrLiquido": [expense_from_rest["valorLiquido"]]})
+def run_model(expense_from_rest: dict) -> dict:
+    bucket = _bucket_name(expense_from_rest["nomeFornecedor"],
+                          expense_from_rest["tipoDespesa"])
 
-    # Carrega o dicionário de pipelines treinados
-    pipelines_dict = joblib.load("saved_models/isolation_forest_pipeline_by_supplier.pkl")
-
-    # Obtém o pipeline para o fornecedor ou usa "OUTROS" como fallback
-    if supplier in pipelines_dict:
-        pipeline_model = pipelines_dict[supplier]
-    else:
-        pipeline_model = pipelines_dict.get("OUTROS")
-
-    # Previsão (-1 para anomalia, 1 para normal)
-    prediction = pipeline_model.predict(df_single)[0]
-
-    # Transforma os dados com o scaler
-    transformed_data = pipeline_model["scaler"].transform(df_single)
-    anomaly_score = pipeline_model["isolation_forest"].decision_function(transformed_data)[0]
-
-    # Tenta usar TreeExplainer; se falhar, utiliza KernelExplainer
-    try:
-        explainer = shap.TreeExplainer(pipeline_model["isolation_forest"])
-        shap_values = explainer.shap_values(transformed_data)
-    except Exception as e:
-        background = transformed_data
-        explainer = shap.KernelExplainer(pipeline_model["isolation_forest"].decision_function, background)
-        shap_values = explainer.shap_values(transformed_data)
-
-    # Como temos apenas uma feature, pegamos seu valor absoluto de SHAP
-    shap_df = pd.DataFrame(shap_values, columns=["vlrLiquido"])
-    influential_features = [{"feature": "vlrLiquido", "impact": float(abs(shap_df.iloc[0, 0]))}]
-
-    # Define o nível de alerta com base na predição e score
-    if prediction == 1:
-        alert = "GREEN"
-    elif prediction == -1:
-        alert = "RED"
-    else:
-        alert = "RED"
+    z = _robust_z(expense_from_rest["valorLiquido"], bucket)
+    is_anomaly = z > K_THRESHOLD
+    alert      = "RED" if is_anomaly else "GREEN"
 
     output = {
         "expense": {
@@ -226,9 +189,11 @@ def run_model(expense_from_rest):
             "supplier_identifier": expense_from_rest["cnpjCpfFornecedor"],
             "date": expense_from_rest["dataDocumento"]
         },
-        "is_anomaly": bool(prediction == -1),  # Converter para bool do Python
-        "score_anomaly": float(anomaly_score),
+        "is_anomaly": bool(is_anomaly),
+        "score_anomaly": float(z),          # z-score robusto
         "alert": alert,
-        "influential_features": influential_features
+        "influential_features": [
+            {"feature": "vlrLiquido", "impact": float(z)}
+        ]
     }
     return output

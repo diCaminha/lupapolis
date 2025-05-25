@@ -1,14 +1,29 @@
-import os
-import logging
-import joblib
-import pandas as pd
-from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import StandardScaler
-from sklearn.ensemble import IsolationForest
+#!/usr/bin/env python
+# coding: utf-8
+"""
+Treina “modelos” baseados em estatística robusta para cada fornecedor
+(ou OUTROS_<txtDescricao>).  Para cada bucket salvamos:
+    median, MAD_esc, Q1, Q3, n_amostras
+"""
 
-# Configura o logging
-logging.basicConfig(level=logging.INFO)
+import os
+import json
+import logging
+from pathlib import Path
+
+import numpy as np
+import pandas as pd
+
+# ──────────────────── configuração & dados fixos ───────────────────── #
+
+logging.basicConfig(level=logging.INFO,
+                    format="%(asctime)s | %(levelname)s | %(message)s")
 logger = logging.getLogger(__name__)
+
+DATA_FILES = [f"files/despesas{yr}.csv" for yr in range(2015, 2025)]
+COLUMNS    = ["txtDescricao", "numMes", "numAno", "vlrLiquido", "txtFornecedor"]
+MIN_ROWS   = 10
+STATS_OUT  = Path("saved_models/robust_stats_by_supplier.json")
 
 selected_categories = [
     "COMBUSTÍVEIS E LUBRIFICANTES.",
@@ -166,116 +181,62 @@ txtFornecedores = ['SERVIÇO NACIONAL DE APRENDIZAGEM COMERCIAL - SENAC',
  'CORREIOS - SEDEX 10',
  'TELEFÔNICA BRASIL S.A']
 
+# ──────────────────────── funções utilitárias ──────────────────────── #
 
-def load_data(file_paths, columns_to_use):
-    dfs = []
-
-    for path in file_paths:
-        df = pd.read_csv(path, sep=";")
-        dfs.append(df)
-
-    df_full = pd.concat(dfs, ignore_index=True)
-
-    # Filtra apenas as colunas necessárias e remove linhas sem txtDescricao
-    df_filtered = df_full[columns_to_use].copy()
-    df_filtered.dropna(subset=["txtDescricao"], inplace=True)
-
-    df_filtered = df_filtered[df_filtered['txtDescricao'].isin(selected_categories)]
-
-    logger.info(f"Loaded data with {df_filtered.shape[0]} rows after filtering.")
-    return df_filtered
+def robust_stats(arr: np.ndarray) -> dict:
+    """Mediana, MAD escalonado (σ-consistente), Q1, Q3, n."""
+    med = float(np.median(arr))
+    mad = float(1.4826 * np.median(np.abs(arr - med))) or 1e-9
+    q1, q3 = np.percentile(arr, [25, 75])
+    return {"median": med, "mad": mad, "q1": float(q1), "q3": float(q3), "n": int(arr.size)}
 
 
-def build_pipeline_for_vlrLiquido(contamination=0.01):
-    pipeline = Pipeline([
-        ("scaler", StandardScaler()),
-        ("isolation_forest", IsolationForest(contamination=contamination, random_state=42))
-    ])
-    return pipeline
+def load_concat(files, cols):
+    dfs = [pd.read_csv(p, sep=";") for p in files]
+    df  = pd.concat(dfs, ignore_index=True)
 
+    df = df[cols].copy()
+    df.dropna(subset=["txtDescricao"], inplace=True)
+    df = df[df["txtDescricao"].isin(selected_categories)]
+    logger.info("Total após filtros: %d linhas", len(df))
+    return df
+
+
+# ─────────────────────────────  main  ──────────────────────────────── #
 
 def main():
-    file_paths = [
-        "files/despesas2015.csv",
-        "files/despesas2016.csv",
-        "files/despesas2017.csv",
-        "files/despesas2018.csv",
-        "files/despesas2019.csv",
-        "files/despesas2020.csv",
-        "files/despesas2021.csv",
-        "files/despesas2022.csv",
-        "files/despesas2023.csv",
-        "files/despesas2024.csv"
-    ]
+    df = load_concat(DATA_FILES, COLUMNS)
+    df.dropna(subset=COLUMNS, inplace=True)
 
-    columns_to_use = [
-        "txtDescricao",
-        "numMes",
-        "numAno",
-        "vlrLiquido",
-        "txtFornecedor"
-    ]
+    # bucket por fornecedor / OUTROS
+    df["fornecedorId"] = np.where(df["txtFornecedor"].isin(txtFornecedores),
+                                  df["txtFornecedor"],
+                                  "OUTROS")
 
-    # Carrega os dados aglomerando os arquivos de historicos de despesas
-    df = load_data(file_paths, columns_to_use)
+    stats = {}
 
-    # Removendo linhas do dataset que não possuem valores para um dos campos importantes para o modelo
-    if df[columns_to_use].isnull().values.any():
-        print("Existem valores NaN ou null nas colunas especificadas.")
-        df = df.dropna(subset=columns_to_use)
-        print("Linhas com valores NaN ou null foram removidas.")
-    else:
-        print("Não há valores NaN ou null nas colunas especificadas.")
-
-    # Criando nova coluna: fornecedorId
-    df['fornecedorId'] = 'OUTROS'
-    df.loc[df['txtFornecedor'].isin(txtFornecedores), 'fornecedorId'] = df['txtFornecedor']
-
-    contamination_value = 0.01
-
-    pipelines_dict = {}
-
-    # Agrupa os dados por fornecedorId e treina um pipeline para cada grupo
-    for supplier, group_df in df.groupby('fornecedorId'):
+    for supplier, g_sup in df.groupby("fornecedorId"):
         if supplier == "OUTROS":
-            # Para fornecedor OUTROS, agrupa por txtDescricao e treina um pipeline para cada descrição
-            for description, group_df_desc in group_df.groupby('txtDescricao'):
-                X = group_df_desc[['vlrLiquido']]
-                if len(X) < 10:
-                    logger.info(
-                        f"Grupo {description} possui poucos dados ({len(X)} amostras). Ignorando treinamento para esse grupo.")
+            for desc, g_desc in g_sup.groupby("txtDescricao"):
+                vals = g_desc["vlrLiquido"].values
+                if vals.size < MIN_ROWS:
+                    logger.info("OUTROS_%s ignorado (%d linhas)", desc, vals.size)
                     continue
-
-                model_pipeline = build_pipeline_for_vlrLiquido(contamination=contamination_value)
-                model_pipeline.fit(X)
-                # Armazena o pipeline usando uma chave que combina 'OUTROS' e a descrição
-                pipelines_dict[f"OUTROS_{description}"] = model_pipeline
-                logger.info(f"Treinamento concluído para a descrição {description} com {len(X)} amostras.")
+                stats[f"OUTROS_{desc}"] = robust_stats(vals)
         else:
-            X = group_df[['vlrLiquido']]
-            # Se o grupo tiver poucos dados, opta por não treinar um modelo específico
-            if len(X) < 10:
-                logger.info(
-                    f"Grupo {supplier} possui poucos dados ({len(X)} amostras). Ignorando treinamento para esse grupo.")
+            vals = g_sup["vlrLiquido"].values
+            if vals.size < MIN_ROWS:
+                logger.info("%s ignorado (%d linhas)", supplier, vals.size)
                 continue
+            stats[supplier] = robust_stats(vals)
 
-            model_pipeline = build_pipeline_for_vlrLiquido(contamination=contamination_value)
-            model_pipeline.fit(X)
-            pipelines_dict[supplier] = model_pipeline
-            logger.info(f"Treinamento concluído para o fornecedor {supplier} com {len(X)} amostras.")
+    if not stats:  # fallback
+        stats["GLOBAL"] = robust_stats(df["vlrLiquido"].values)
+        logger.warning("Nenhum bucket atingiu %d linhas; criado GLOBAL.", MIN_ROWS)
 
-    # Se nenhum modelo foi treinado, cria um modelo global
-    if not pipelines_dict:
-        global_pipeline = build_pipeline_for_vlrLiquido(contamination=contamination_value)
-        X_global = df[['vlrLiquido']]
-        global_pipeline.fit(X_global)
-        pipelines_dict["GLOBAL"] = global_pipeline
-        logger.info("Treinamento do modelo global concluído.")
-
-    # 6) Salvar o dicionário de pipelines
-    os.makedirs("saved_models", exist_ok=True)
-    joblib.dump(pipelines_dict, "saved_models/isolation_forest_pipeline_by_supplier.pkl")
-    logger.info("Modelos salvos em 'saved_models/isolation_forest_pipeline_by_supplier.pkl'.")
+    STATS_OUT.parent.mkdir(parents=True, exist_ok=True)
+    STATS_OUT.write_text(json.dumps(stats, indent=2, ensure_ascii=False))
+    logger.info("Salvo %d buckets em %s", len(stats), STATS_OUT)
 
 
 if __name__ == "__main__":
