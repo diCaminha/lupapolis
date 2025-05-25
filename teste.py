@@ -11,7 +11,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-K_THRESHOLD = 3.5   # ajuste conforme desejado
+K_THRESHOLD = 7.5
 STATS_FILE  = Path("saved_models/robust_stats_by_supplier.json")
 
 # set para lookup rápido
@@ -172,12 +172,12 @@ def _robust_z(valor: float, bucket: str) -> float:
     return abs(valor - stats["median"]) / stats["mad"]
 
 
-def run_model(expense_from_rest: dict) -> dict:
+def run_model(expense_from_rest: dict, k_threshold: float = 3.5) -> dict:
     bucket = _bucket_name(expense_from_rest["nomeFornecedor"],
                           expense_from_rest["tipoDespesa"])
 
     z = _robust_z(expense_from_rest["valorLiquido"], bucket)
-    is_anomaly = z > K_THRESHOLD
+    is_anomaly = z > k_threshold
     alert      = "RED" if is_anomaly else "GREEN"
 
     output = {
