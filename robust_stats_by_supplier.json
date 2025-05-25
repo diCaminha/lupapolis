@@ -1,0 +1,1059 @@
+{
+  "031 - 302 NORTE - CASCOL COMBUSTIVEIS PARA VEICULOS LTDA": {
+    "median": 200.0,
+    "mad": 84.81954599999996,
+    "q1": 150.0,
+    "q3": 262.87,
+    "n": 3795
+  },
+  "063 - 311 SUL - CASCOL COMBUSTIVEIS PARA VEICULOS LTDA": {
+    "median": 200.01,
+    "mad": 84.80471999999997,
+    "q1": 150.0,
+    "q3": 262.96500000000003,
+    "n": 2835
+  },
+  "076 - MELHOR 10 - CASCOL COMBUSTIVEIS PARA VEICULOS LTDA": {
+    "median": 200.0,
+    "mad": 75.47916599999999,
+    "q1": 150.0,
+    "q3": 252.3,
+    "n": 1103
+  },
+  "99 POP": {
+    "median": 17.695,
+    "mad": 10.963826999999998,
+    "q1": 11.7,
+    "q3": 28.235,
+    "n": 3830
+  },
+  "ALLPARK EMPREENDIMENTOS PARTICIPAÇÕES E SERVIÇOS S.A.": {
+    "median": 18.0,
+    "mad": 4.4478,
+    "q1": 15.0,
+    "q3": 23.5,
+    "n": 1031
+  },
+  "AMORETTO CAFES EXPRESSO LTDA": {
+    "median": 600.0,
+    "mad": 146.7774,
+    "q1": 518.0,
+    "q3": 700.0,
+    "n": 3269
+  },
+  "AUTO PISTA FERNÃO DIAS": {
+    "median": 2.1,
+    "mad": 1e-09,
+    "q1": 1.8,
+    "q3": 2.1,
+    "n": 1679
+  },
+  "AUTO POSTO 303 NORTE LTDA": {
+    "median": 203.84,
+    "mad": 79.823184,
+    "q1": 150.0,
+    "q3": 265.87,
+    "n": 3909
+  },
+  "AUTO POSTO AEROPORTO LTDA": {
+    "median": 150.09,
+    "mad": 74.263434,
+    "q1": 100.0,
+    "q3": 210.03,
+    "n": 4761
+  },
+  "AUTO POSTO CINCO ESTRELAS LTDA": {
+    "median": 200.0,
+    "mad": 88.95599999999999,
+    "q1": 107.795,
+    "q3": 250.0,
+    "n": 5808
+  },
+  "AUTO POSTO CONCORDE LTDA": {
+    "median": 174.835,
+    "mad": 77.769783,
+    "q1": 105.155,
+    "q3": 215.14249999999998,
+    "n": 1074
+  },
+  "AUTO POSTO DE COMBUSTIVEIS RENASCENCA LTDA": {
+    "median": 192.015,
+    "mad": 68.95572600000003,
+    "q1": 150.0,
+    "q3": 240.025,
+    "n": 1216
+  },
+  "AUTO POSTO JK LTDA": {
+    "median": 191.42,
+    "mad": 75.41986199999997,
+    "q1": 135.865,
+    "q3": 239.3,
+    "n": 1599
+  },
+  "AUTO POSTO PETER PAN 01 LTDA": {
+    "median": 175.0,
+    "mad": 81.54299999999999,
+    "q1": 100.0,
+    "q3": 219.3,
+    "n": 1239
+  },
+  "AUTO SHOPPING DERIVADOS DE PETROLEO LTDA": {
+    "median": 164.84,
+    "mad": 82.743906,
+    "q1": 110.0,
+    "q3": 221.0,
+    "n": 2729
+  },
+  "AZUL": {
+    "median": 833.63,
+    "mad": 738.572016,
+    "q1": 392.02250000000004,
+    "q3": 1441.47,
+    "n": 38452
+  },
+  "Autopista Fernão Dias": {
+    "median": 2.3,
+    "mad": 1e-09,
+    "q1": 2.3,
+    "q3": 2.4,
+    "n": 1553
+  },
+  "BRASAL COMBUSTIVEIS LTDA": {
+    "median": 170.035,
+    "mad": 103.833891,
+    "q1": 100.0,
+    "q3": 229.20250000000001,
+    "n": 3684
+  },
+  "BRASIL 21 EVENTOS E HOTELARIA LTDA": {
+    "median": 41.0,
+    "mad": 45.2193,
+    "q1": 33.0,
+    "q3": 80.65,
+    "n": 1323
+  },
+  "CAMINHOS DO PARANA S/A": {
+    "median": 9.7,
+    "mad": 1.779119999999999,
+    "q1": 9.7,
+    "q3": 11.0,
+    "n": 1416
+  },
+  "CARREFOUR COMERCIO E INDUSTRIA LTDA": {
+    "median": 150.15,
+    "mad": 74.35239,
+    "q1": 100.0,
+    "q3": 200.0,
+    "n": 1111
+  },
+  "CASCOL COMBUSTIVEIS PARA VEICULOS LTDA": {
+    "median": 150.0,
+    "mad": 74.13,
+    "q1": 100.0,
+    "q3": 200.0,
+    "n": 26939
+  },
+  "CASCOL COMBUSTÍVEIS PARA VEÍCULOS LTDA": {
+    "median": 136.66,
+    "mad": 54.352115999999995,
+    "q1": 100.0,
+    "q3": 172.99,
+    "n": 2967
+  },
+  "CASCOL COMBUSTÍVEIS PARA VEÍCULOS LTDA.": {
+    "median": 120.0,
+    "mad": 52.202346000000006,
+    "q1": 100.0,
+    "q3": 167.055,
+    "n": 1223
+  },
+  "CCR-RODONORTE": {
+    "median": 7.9,
+    "mad": 1.186080000000001,
+    "q1": 7.1,
+    "q3": 10.1,
+    "n": 1289
+  },
+  "CEEE - Companhia Estadual de Distribuição de Energia Elétrica": {
+    "median": 183.86,
+    "mad": 123.530232,
+    "q1": 110.11,
+    "q3": 329.575,
+    "n": 1727
+  },
+  "CELULAR FUNCIONAL": {
+    "median": 107.1,
+    "mad": 129.401328,
+    "q1": 31.15,
+    "q3": 235.44,
+    "n": 73289
+  },
+  "CEMIG DISTRIBUIÇÃO S.A": {
+    "median": 150.125,
+    "mad": 143.04866099999998,
+    "q1": 69.6575,
+    "q3": 305.5825,
+    "n": 1384
+  },
+  "CEMIG DISTRIBUIÇÃO S.A.": {
+    "median": 195.32,
+    "mad": 160.105974,
+    "q1": 95.9,
+    "q3": 323.6775,
+    "n": 3048
+  },
+  "CENTRAL PARK RESTAURANTE E EVENTOS LTDA ME": {
+    "median": 20.76,
+    "mad": 13.513898999999997,
+    "q1": 13.1075,
+    "q3": 33.79,
+    "n": 1592
+  },
+  "CENTRO DE GESTÃO DE MEIOS DE PGTO. LTDA. - SEM PARAR": {
+    "median": 264.125,
+    "mad": 242.494056,
+    "q1": 127.685,
+    "q3": 514.4975,
+    "n": 2552
+  },
+  "CENTROVIAS SISTEMAS RODOVIARIOS S/A": {
+    "median": 7.4,
+    "mad": 1.3343400000000005,
+    "q1": 5.0,
+    "q3": 8.1,
+    "n": 1013
+  },
+  "CLARO S.A": {
+    "median": 231.62,
+    "mad": 211.00363199999998,
+    "q1": 128.8,
+    "q3": 432.78,
+    "n": 1901
+  },
+  "CLARO S.A.": {
+    "median": 209.035,
+    "mad": 145.90266599999998,
+    "q1": 130.18,
+    "q3": 345.0775,
+    "n": 4832
+  },
+  "CLARO S/A": {
+    "median": 190.35,
+    "mad": 208.09773599999997,
+    "q1": 63.1,
+    "q3": 375.885,
+    "n": 4151
+  },
+  "COELBA GRUPO NEOENERGIA": {
+    "median": 156.57,
+    "mad": 115.33145399999998,
+    "q1": 86.71,
+    "q3": 246.66,
+    "n": 1065
+  },
+  "COMPANHIA DE ELETRICIDADE DO ESTADO DA BAHIA": {
+    "median": 282.67,
+    "mad": 239.973636,
+    "q1": 128.20999999999998,
+    "q3": 456.655,
+    "n": 1991
+  },
+  "CONC. DE RODOVIAS INTEGRADAS S/A": {
+    "median": 10.9,
+    "mad": 2.81694,
+    "q1": 8.9,
+    "q3": 11.9,
+    "n": 1288
+  },
+  "CONC. DE RODOVIAS MINAS GERAIS GOIAS S/A": {
+    "median": 6.0,
+    "mad": 1.3343400000000005,
+    "q1": 5.3,
+    "q3": 6.9,
+    "n": 1860
+  },
+  "CONC. RODOVIA DO OESTE DE SÃO PAULO S/A": {
+    "median": 4.9,
+    "mad": 1.186080000000001,
+    "q1": 4.2,
+    "q3": 8.8,
+    "n": 1859
+  },
+  "CONC. RODOVIAS INTEGRADAS DO SUL": {
+    "median": 4.7,
+    "mad": 0.44477999999999973,
+    "q1": 4.7,
+    "q3": 5.5,
+    "n": 4084
+  },
+  "CONC. SISTEMA ANHANGUERA-BANDEIRANTES S/A": {
+    "median": 9.2,
+    "mad": 1.1860799999999982,
+    "q1": 8.4,
+    "q3": 10.4,
+    "n": 2923
+  },
+  "CONCEBRA - CONCESSIONARIA DAS RODOVIAS CENTRAIS DO BRASIL S.A.": {
+    "median": 4.6,
+    "mad": 1.9273799999999996,
+    "q1": 3.3,
+    "q3": 5.1,
+    "n": 3339
+  },
+  "CONCESS. DA RODOVIA PRESIDENTE DUTRA S.A.": {
+    "median": 3.5,
+    "mad": 1.1860799999999996,
+    "q1": 3.1,
+    "q3": 6.1,
+    "n": 1283
+  },
+  "CONCESSIONARIA BR-040 S.A.": {
+    "median": 5.3,
+    "mad": 1e-09,
+    "q1": 5.3,
+    "q3": 5.8,
+    "n": 6651
+  },
+  "CONCESSIONARIA DA RODOVIA OSORIO PORTO ALEGRE SA - CONCEPA": {
+    "median": 7.1,
+    "mad": 5.337359999999999,
+    "q1": 6.3,
+    "q3": 12.6,
+    "n": 2350
+  },
+  "CONCESSIONARIA DA RODOVIA PRESIDENTE DUTRA S/A": {
+    "median": 14.2,
+    "mad": 1.4826,
+    "q1": 6.7,
+    "q3": 15.2,
+    "n": 1355
+  },
+  "CONCESSIONÁRIA DE RODOVIAS S/A": {
+    "median": 4.3,
+    "mad": 0.29652000000000023,
+    "q1": 4.1,
+    "q3": 4.8,
+    "n": 1131
+  },
+  "COPASA": {
+    "median": 80.67500000000001,
+    "mad": 42.25409999999998,
+    "q1": 59.245000000000005,
+    "q3": 121.1225,
+    "n": 1230
+  },
+  "CORREIOS - CAIXA DE ENCOMENDAS BÁSICA/CONVENCIONAL": {
+    "median": 10.4,
+    "mad": 8.45082,
+    "q1": 5.9,
+    "q3": 21.5,
+    "n": 3293
+  },
+  "CORREIOS - CARTA COMERCIAL": {
+    "median": 20.85,
+    "mad": 28.021140000000003,
+    "q1": 5.1,
+    "q3": 101.025,
+    "n": 21739
+  },
+  "CORREIOS - CARTA REGISTRADA": {
+    "median": 11.1,
+    "mad": 7.783650000000001,
+    "q1": 6.9,
+    "q3": 32.7,
+    "n": 3526
+  },
+  "CORREIOS - CARTA REGISTRADA COM AR": {
+    "median": 15.55,
+    "mad": 9.26625,
+    "q1": 10.95,
+    "q3": 37.65,
+    "n": 5265
+  },
+  "CORREIOS - ENCOMENDA PAC": {
+    "median": 56.24,
+    "mad": 51.965129999999995,
+    "q1": 26.82,
+    "q3": 138.35500000000002,
+    "n": 16007
+  },
+  "CORREIOS - ENCOMENDA PAC COM AR": {
+    "median": 49.38,
+    "mad": 38.93307599999999,
+    "q1": 26.97,
+    "q3": 101.81,
+    "n": 1681
+  },
+  "CORREIOS - ENVELOPE BÁSICO/CONVENCIONAL - PLÁSTICO/BOLHA": {
+    "median": 4.8,
+    "mad": 2.372159999999999,
+    "q1": 3.6,
+    "q3": 8.75,
+    "n": 1023
+  },
+  "CORREIOS - MALA DIRETA ENDEREÇADA (POSTAL BÁSICA)": {
+    "median": 504.17,
+    "mad": 433.008156,
+    "q1": 350.71500000000003,
+    "q3": 1222.885,
+    "n": 2335
+  },
+  "CORREIOS - SEDEX 10": {
+    "median": 67.7,
+    "mad": 20.7564,
+    "q1": 60.62,
+    "q3": 88.0,
+    "n": 7149
+  },
+  "CORREIOS - SEDEX 10 COM AR": {
+    "median": 68.7,
+    "mad": 12.009060000000002,
+    "q1": 60.6,
+    "q3": 78.85,
+    "n": 1095
+  },
+  "CORREIOS - SEDEX 12": {
+    "median": 80.15,
+    "mad": 22.01660999999999,
+    "q1": 64.4,
+    "q3": 95.0,
+    "n": 1356
+  },
+  "CORREIOS - SEDEX CONVENCIONAL": {
+    "median": 48.94,
+    "mad": 22.327955999999993,
+    "q1": 35.46,
+    "q3": 68.85749999999999,
+    "n": 47396
+  },
+  "CORREIOS - SEDEX CONVENCIONAL COM AR": {
+    "median": 49.08,
+    "mad": 20.044751999999992,
+    "q1": 37.0,
+    "q3": 66.71,
+    "n": 7818
+  },
+  "CORREIOS - TELEGRAMA": {
+    "median": 14.13,
+    "mad": 4.151280000000001,
+    "q1": 11.85,
+    "q3": 29.36,
+    "n": 4802
+  },
+  "Cascol Combustíveis para Veículos Ltda.": {
+    "median": 141.61,
+    "mad": 61.69098600000002,
+    "q1": 100.0,
+    "q3": 177.71499999999997,
+    "n": 1423
+  },
+  "Cia Aérea - AVIANCA": {
+    "median": 379.64,
+    "mad": 444.24626399999994,
+    "q1": 80.0,
+    "q3": 656.9100000000001,
+    "n": 65086
+  },
+  "Cia Aérea - AZUL": {
+    "median": 580.925,
+    "mad": 453.8609249999999,
+    "q1": 303.03,
+    "q3": 943.2075,
+    "n": 56482
+  },
+  "Cia Aérea - GOL": {
+    "median": 565.03,
+    "mad": 789.7217160000001,
+    "q1": -19.5,
+    "q3": 1050.93,
+    "n": 213658
+  },
+  "Cia Aérea - PASSAREDO": {
+    "median": 420.76,
+    "mad": 294.014406,
+    "q1": 240.76,
+    "q3": 659.94,
+    "n": 6113
+  },
+  "Cia Aérea - TAM": {
+    "median": 464.1,
+    "mad": 567.46515,
+    "q1": 120.0,
+    "q3": 958.33,
+    "n": 216674
+  },
+  "Claro NXT Telecomunicações S.A": {
+    "median": 153.2,
+    "mad": 55.15271999999998,
+    "q1": 124.9,
+    "q3": 211.51,
+    "n": 3255
+  },
+  "Claro S.A": {
+    "median": 185.49,
+    "mad": 126.76230000000001,
+    "q1": 124.8425,
+    "q3": 361.4075,
+    "n": 2580
+  },
+  "Claro S/A": {
+    "median": 174.99,
+    "mad": 88.970826,
+    "q1": 131.48,
+    "q3": 299.72999999999996,
+    "n": 1952
+  },
+  "Companhia Energética de Pernambuco": {
+    "median": 304.555,
+    "mad": 198.105012,
+    "q1": 190.225,
+    "q3": 464.675,
+    "n": 1536
+  },
+  "Conc. Sistema Anhanguera-Bandeirantes S/A": {
+    "median": 7.7,
+    "mad": 0.8895600000000008,
+    "q1": 7.1,
+    "q3": 8.0,
+    "n": 4909
+  },
+  "Concessionaria das Rodovias Ayrton Senna e Carvalho Pinto SA": {
+    "median": 3.2,
+    "mad": 1e-09,
+    "q1": 3.2,
+    "q3": 3.4,
+    "n": 1345
+  },
+  "Copel Distribuição S.A.": {
+    "median": 149.36,
+    "mad": 135.820986,
+    "q1": 81.87,
+    "q3": 312.78,
+    "n": 1669
+  },
+  "DRA 4 DERIVADOS DE PETROLEO LTDA": {
+    "median": 150.0,
+    "mad": 74.13,
+    "q1": 100.0,
+    "q3": 196.555,
+    "n": 1168
+  },
+  "DRA4 DERIVADOS DE PETROLEO LTDA": {
+    "median": 162.94,
+    "mad": 93.314844,
+    "q1": 100.0,
+    "q3": 220.25,
+    "n": 3638
+  },
+  "ECT": {
+    "median": 53.1,
+    "mad": 32.468939999999996,
+    "q1": 31.5,
+    "q3": 75.0,
+    "n": 1353
+  },
+  "ECT - EMP. BRAS. DE CORREIOS E TELEGRAFOS": {
+    "median": 47.5,
+    "mad": 30.319169999999996,
+    "q1": 32.375,
+    "q3": 75.0,
+    "n": 1199
+  },
+  "EGR EMPRESA GAUCHA DE RODOVIAS S/A": {
+    "median": 5.2,
+    "mad": 0.5930400000000005,
+    "q1": 2.4,
+    "q3": 5.2,
+    "n": 1418
+  },
+  "EGR EMPRESA GAUCHA DE RODOVIAS SA": {
+    "median": 6.5,
+    "mad": 0.8895599999999995,
+    "q1": 3.25,
+    "q3": 7.0,
+    "n": 2347
+  },
+  "ELETROPAULO METROPOLITANA ELETRICIDADE DE SÃO PAULO S.A.": {
+    "median": 145.15,
+    "mad": 118.56352199999999,
+    "q1": 71.05,
+    "q3": 237.1,
+    "n": 1113
+  },
+  "EMPRESA CONCESSIONARIA DE RODOVIAS DO SUL S/A - ECOSUL": {
+    "median": 12.9,
+    "mad": 3.4099799999999982,
+    "q1": 12.3,
+    "q3": 15.2,
+    "n": 2681
+  },
+  "EMPRESA CONCESSIONÁRIA DE RODOVIAS DO SUL S.A": {
+    "median": 9.7,
+    "mad": 1.4826,
+    "q1": 9.7,
+    "q3": 10.7,
+    "n": 1261
+  },
+  "FACEBOOK SERVIÇOS ONLINE DO BRASIL LTDA": {
+    "median": 834.3,
+    "mad": 977.1668339999999,
+    "q1": 298.185,
+    "q3": 1957.835,
+    "n": 1899
+  },
+  "FRATELLI POSTO DE COMBUSTIVEIS LTDA": {
+    "median": 150.87,
+    "mad": 75.41986200000001,
+    "q1": 100.0,
+    "q3": 200.0,
+    "n": 5801
+  },
+  "GOL": {
+    "median": 917.64,
+    "mad": 1040.5183319999999,
+    "q1": 55.0,
+    "q3": 1574.27,
+    "n": 57381
+  },
+  "IMÓVEL FUNCIONAL": {
+    "median": 36.45,
+    "mad": 26.998146000000006,
+    "q1": 18.24,
+    "q3": 49.61,
+    "n": 3045
+  },
+  "JK COMBUSTIVEIS": {
+    "median": 100.0,
+    "mad": 74.13,
+    "q1": 70.0,
+    "q3": 151.175,
+    "n": 1412
+  },
+  "LIGHT SERVICOS DE ELETRICIDADE S A": {
+    "median": 183.15,
+    "mad": 144.168024,
+    "q1": 105.43,
+    "q3": 409.76,
+    "n": 1017
+  },
+  "OI S.A": {
+    "median": 144.68,
+    "mad": 76.70972400000001,
+    "q1": 92.42,
+    "q3": 195.125,
+    "n": 1087
+  },
+  "OI S.A.": {
+    "median": 150.9,
+    "mad": 99.26007,
+    "q1": 98.56,
+    "q3": 239.86,
+    "n": 2531
+  },
+  "OUTROS_COMBUSTÍVEIS E LUBRIFICANTES.": {
+    "median": 174.58,
+    "mad": 102.69970200000002,
+    "q1": 100.06,
+    "q3": 240.0,
+    "n": 534704
+  },
+  "OUTROS_DIVULGAÇÃO DA ATIVIDADE PARLAMENTAR.": {
+    "median": 2200.0,
+    "mad": 2520.42,
+    "q1": 1000.0,
+    "q3": 6000.0,
+    "n": 120741
+  },
+  "OUTROS_FORNECIMENTO DE ALIMENTAÇÃO DO PARLAMENTAR": {
+    "median": 48.9,
+    "mad": 35.43414,
+    "q1": 29.0,
+    "q3": 82.6,
+    "n": 124708
+  },
+  "OUTROS_MANUTENÇÃO DE ESCRITÓRIO DE APOIO À ATIVIDADE PARLAMENTAR": {
+    "median": 469.42,
+    "mad": 542.1719939999999,
+    "q1": 180.0,
+    "q3": 1650.0,
+    "n": 185019
+  },
+  "OUTROS_PASSAGEM AÉREA - SIGEPA": {
+    "median": 785.76,
+    "mad": 200.18065199999995,
+    "q1": 708.43,
+    "q3": 984.8375,
+    "n": 110
+  },
+  "OUTROS_SERVIÇO DE TÁXI, PEDÁGIO E ESTACIONAMENTO": {
+    "median": 12.0,
+    "mad": 11.26776,
+    "q1": 6.2,
+    "q3": 32.0,
+    "n": 89428
+  },
+  "OUTROS_SERVIÇOS POSTAIS": {
+    "median": 60.0,
+    "mad": 49.51884,
+    "q1": 31.4,
+    "q3": 110.0,
+    "n": 14857
+  },
+  "OUTROS_TELEFONIA": {
+    "median": 249.99,
+    "mad": 222.39,
+    "q1": 132.9875,
+    "q3": 521.2275,
+    "n": 46092
+  },
+  "PETROIL COMBUSTIVEIS LTDA": {
+    "median": 100.0,
+    "mad": 74.13,
+    "q1": 80.0,
+    "q3": 164.325,
+    "n": 1511
+  },
+  "POSTO DA TORRE EIRELI - EPP": {
+    "median": 150.0,
+    "mad": 74.13,
+    "q1": 100.0,
+    "q3": 200.0,
+    "n": 1676
+  },
+  "POSTO DA TORRE EIRELI EPP": {
+    "median": 150.0,
+    "mad": 74.13,
+    "q1": 100.0,
+    "q3": 200.0,
+    "n": 4145
+  },
+  "POSTO DE GASOLINA JB CAXIAS LTDA": {
+    "median": 202.465,
+    "mad": 72.78083399999998,
+    "q1": 151.915,
+    "q3": 249.9975,
+    "n": 1058
+  },
+  "POSTO DISBRAVE IMPERIAL LTDA": {
+    "median": 150.0,
+    "mad": 74.13,
+    "q1": 100.0,
+    "q3": 189.26250000000002,
+    "n": 2532
+  },
+  "POSTO ICCAR LTDA": {
+    "median": 200.02,
+    "mad": 74.14482600000002,
+    "q1": 150.01,
+    "q3": 250.035,
+    "n": 1075
+  },
+  "POSTO ITAMARATY LTDA": {
+    "median": 190.0,
+    "mad": 59.303999999999995,
+    "q1": 140.0,
+    "q3": 216.93,
+    "n": 1303
+  },
+  "POSTO KALILANDIA LTDA": {
+    "median": 162.74,
+    "mad": 93.018324,
+    "q1": 100.0,
+    "q3": 224.99,
+    "n": 1985
+  },
+  "POSTOS MATARIPE ABASTECIMENTOS E SERVIÇOS LTDA": {
+    "median": 140.05,
+    "mad": 59.37813000000001,
+    "q1": 100.0,
+    "q3": 199.97,
+    "n": 1171
+  },
+  "RAMAL": {
+    "median": 24.08,
+    "mad": 29.355479999999993,
+    "q1": 7.255,
+    "q3": 58.65,
+    "n": 134851
+  },
+  "RESTAURANTE DAS MINAS LTDA": {
+    "median": 50.15,
+    "mad": 14.648087999999992,
+    "q1": 41.89,
+    "q3": 63.86,
+    "n": 1113
+  },
+  "RODOVIAS INTEGRADAS DO PARANA S/A": {
+    "median": 10.5,
+    "mad": 2.372159999999999,
+    "q1": 8.9,
+    "q3": 11.7,
+    "n": 1225
+  },
+  "SENAC - COMP. ADM. CAM. DEP. ANEXO IV 10º ANDAR": {
+    "median": 50.53,
+    "mad": 3.113460000000002,
+    "q1": 47.63,
+    "q3": 52.13,
+    "n": 2644
+  },
+  "SERV. NAC. DE APRENDIZAGEM COMERCIAL - SENAC": {
+    "median": 24.5,
+    "mad": 20.7564,
+    "q1": 13.0,
+    "q3": 47.63,
+    "n": 1876
+  },
+  "SERVICO NACIONAL DE APRENDIZAGEM COMERCIAL SENAC": {
+    "median": 54.27,
+    "mad": 35.86409400000001,
+    "q1": 26.85,
+    "q3": 67.68,
+    "n": 14025
+  },
+  "SERVIÇO NACIONAL DE APRENDIZ. COMERCIAL SENAC": {
+    "median": 60.4,
+    "mad": 4.670189999999998,
+    "q1": 57.25,
+    "q3": 61.05,
+    "n": 1435
+  },
+  "SERVIÇO NACIONAL DE APRENDIZAGEM COMERCIAL - SENAC": {
+    "median": 23.9,
+    "mad": 11.712539999999997,
+    "q1": 16.0,
+    "q3": 31.3,
+    "n": 3316
+  },
+  "SILT SELF SERVICE EIRELI ME": {
+    "median": 24.35,
+    "mad": 12.246275999999996,
+    "q1": 17.552500000000002,
+    "q3": 36.155,
+    "n": 2502
+  },
+  "SINDICATO DOS PERMISSIONARIOS DE TAXIS E MOTORISTAS AUXILIARES DO DISTRITO FEDERAL": {
+    "median": 30.0,
+    "mad": 20.7564,
+    "q1": 20.0,
+    "q3": 52.0,
+    "n": 2736
+  },
+  "SINPETAXI": {
+    "median": 28.0,
+    "mad": 19.273799999999998,
+    "q1": 20.0,
+    "q3": 50.0,
+    "n": 14297
+  },
+  "SINPETAXI DF": {
+    "median": 26.0,
+    "mad": 14.825999999999999,
+    "q1": 20.0,
+    "q3": 47.0,
+    "n": 2526
+  },
+  "Sintaxi-DF": {
+    "median": 32.0,
+    "mad": 23.7216,
+    "q1": 20.0,
+    "q3": 50.75,
+    "n": 1134
+  },
+  "SÃO JOÃO POSTOS DE ABASTECIMENTOS E SERVIÇOS": {
+    "median": 312.19,
+    "mad": 270.01111199999997,
+    "q1": 150.0,
+    "q3": 558.585,
+    "n": 1399
+  },
+  "TAM": {
+    "median": 1094.79,
+    "mad": 843.2880539999999,
+    "q1": 69.0,
+    "q3": 1382.99,
+    "n": 126729
+  },
+  "TELEFONICA BRASIL S.A": {
+    "median": 455.25,
+    "mad": 415.387455,
+    "q1": 204.99,
+    "q3": 900.48,
+    "n": 1484
+  },
+  "TELEFONICA BRASIL S.A - VIVO.": {
+    "median": 402.48,
+    "mad": 401.56221,
+    "q1": 169.99,
+    "q3": 812.095,
+    "n": 1403
+  },
+  "TELEFONICA BRASIL S.A.": {
+    "median": 439.44,
+    "mad": 416.195472,
+    "q1": 196.54500000000002,
+    "q3": 949.245,
+    "n": 8443
+  },
+  "TELEFONICA BRASIL S.A. VIVO": {
+    "median": 416.755,
+    "mad": 359.626869,
+    "q1": 189.76,
+    "q3": 727.925,
+    "n": 1120
+  },
+  "TELEFÔNICA BRASIL S. A. VIVO": {
+    "median": 263.48,
+    "mad": 223.116474,
+    "q1": 149.505,
+    "q3": 605.88,
+    "n": 1227
+  },
+  "TELEFÔNICA BRASIL S.A": {
+    "median": 369.64,
+    "mad": 338.336733,
+    "q1": 162.9475,
+    "q3": 704.7975,
+    "n": 1368
+  },
+  "TELEFÔNICA BRASIL S.A.": {
+    "median": 437.87,
+    "mad": 468.32368799999995,
+    "q1": 177.93,
+    "q3": 1009.79,
+    "n": 2557
+  },
+  "TELEFÔNICA BRASIL S.A. VIVO": {
+    "median": 343.065,
+    "mad": 307.24661100000003,
+    "q1": 172.57,
+    "q3": 675.4075,
+    "n": 2592
+  },
+  "TELEFÔNICA BRASIL S/A - VIVO": {
+    "median": 399.65999999999997,
+    "mad": 385.69839,
+    "q1": 182.475,
+    "q3": 927.4975000000001,
+    "n": 2572
+  },
+  "TELEMAR NORTE LESTE S/A": {
+    "median": 151.32,
+    "mad": 111.56564999999999,
+    "q1": 85.67,
+    "q3": 261.14,
+    "n": 7269
+  },
+  "TIM CELULAR S.A.": {
+    "median": 266.82,
+    "mad": 248.80993199999998,
+    "q1": 121.86,
+    "q3": 623.51,
+    "n": 3075
+  },
+  "TIM CELULAR S/A": {
+    "median": 241.55,
+    "mad": 214.79908799999998,
+    "q1": 116.78,
+    "q3": 537.3050000000001,
+    "n": 2107
+  },
+  "TIM S.A": {
+    "median": 127.0,
+    "mad": 108.24462599999998,
+    "q1": 63.99,
+    "q3": 261.01,
+    "n": 1143
+  },
+  "Telefonica Brasil S.A - VIVO": {
+    "median": 407.36,
+    "mad": 396.41758799999997,
+    "q1": 157.66750000000002,
+    "q3": 750.905,
+    "n": 1092
+  },
+  "Telefônica Brasil S. A. VIVO": {
+    "median": 319.99,
+    "mad": 295.934373,
+    "q1": 166.98,
+    "q3": 691.78,
+    "n": 3110
+  },
+  "Telefônica Brasil S.A. VIVO": {
+    "median": 299.99,
+    "mad": 266.853174,
+    "q1": 149.9875,
+    "q3": 599.98,
+    "n": 4360
+  },
+  "Telefônica do Brasil S/A - VIVO": {
+    "median": 299.98,
+    "mad": 266.853174,
+    "q1": 149.98,
+    "q3": 586.505,
+    "n": 1191
+  },
+  "TÁXI LEGAL": {
+    "median": 50.0,
+    "mad": 32.6172,
+    "q1": 30.0,
+    "q3": 76.75,
+    "n": 7190
+  },
+  "UBER DO BRASIL TECNOLOGIA LTDA": {
+    "median": 15.45,
+    "mad": 9.874115999999999,
+    "q1": 10.29,
+    "q3": 25.44,
+    "n": 9462
+  },
+  "UBER DO BRASIL TECNOLOGIA LTDA.": {
+    "median": 19.97,
+    "mad": 12.350057999999997,
+    "q1": 12.98,
+    "q3": 31.97,
+    "n": 45587
+  },
+  "VIA 040 CONCESSIONARIA BR040 S/A": {
+    "median": 4.8,
+    "mad": 1e-09,
+    "q1": 4.8,
+    "q3": 5.3,
+    "n": 1331
+  },
+  "VIA 40 CONCESSIONARIA BR040 S/A": {
+    "median": 4.6,
+    "mad": 1e-09,
+    "q1": 4.6,
+    "q3": 4.8,
+    "n": 1717
+  },
+  "VIA BAHIA": {
+    "median": 2.9,
+    "mad": 0.7413,
+    "q1": 2.5,
+    "q3": 3.5,
+    "n": 2796
+  },
+  "VIA SUL LTDA": {
+    "median": 116.06,
+    "mad": 30.637928999999986,
+    "q1": 100.02,
+    "q3": 150.1,
+    "n": 1374
+  },
+  "VIVO TELEFONIA BRASIL S/A": {
+    "median": 299.99,
+    "mad": 266.868,
+    "q1": 150.98,
+    "q3": 576.46,
+    "n": 1795
+  },
+  "WMS COMERCIO DE ARTIGOS DE PAPELARIA LTDA-ME": {
+    "median": 352.7,
+    "mad": 254.85894,
+    "q1": 217.575,
+    "q3": 604.625,
+    "n": 4076
+  }
+}
